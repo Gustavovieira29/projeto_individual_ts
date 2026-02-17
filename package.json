@@ -1,0 +1,13 @@
+{
+  "name": "projeto-individual",
+  "version": "1.0.0",
+  "description": "Projeto individual para desenvolvimento de uma aplicação full-stack",
+ "scripts": {
+  "dev:frontend": "cd front_projeto && npm run dev",
+  "dev:backend": "cd back_projeto && npm run start:dev", 
+  "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\""
+},
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
