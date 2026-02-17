@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { api } from './services/api' 
-import Login from './pages/Login' // Certifique-se de que o arquivo Login.tsx existe em src/pages
+import { api } from './services/api'
+import Login from './pages/Login'
 import './App.css'
 
 function App() {
-  // Estado para guardar a mensagem que vem do NestJS
   const [mensagem, setMensagem] = useState('Carregando conexão...')
 
   useEffect(() => {
-    // Chamada para o Back-end assim que a tela abre
     api.get('/')
       .then((response) => {
-        // response.data contém o que o NestJS enviou (ex: "Hello World!")
         setMensagem(response.data)
       })
       .catch((error) => {
@@ -23,30 +20,56 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        {/* Menu de navegação simples para você testar */}
-        <nav style={{ padding: '20px', borderBottom: '1px solid #ccc' }}>
-          <Link shadow-sm to="/" style={{ margin: '10px' }}>Home</Link>
-          <Link to="/login" style={{ margin: '10px' }}>Ir para Login</Link>
+      <div className="min-h-screen bg-slate-50">
+        
+        {/* NAVBAR */}
+        <nav className="p-5 border-b border-slate-300 bg-white shadow-sm">
+          <Link 
+            to="/" 
+            className="mr-6 text-slate-700 font-medium hover:text-blue-600 transition-colors"
+          >
+            Home
+          </Link>
+
+          <Link 
+            to="/login" 
+            className="text-slate-700 font-medium hover:text-blue-600 transition-colors"
+          >
+            Ir para Login
+          </Link>
         </nav>
 
         <Routes>
-          {/* ROTA DA PÁGINA INICIAL (O que você já tinha) */}
-          <Route path="/" element={
-            <header className="App-header">
-              <h1>Em execução</h1>
-              <div className="card">
-                <h2>Status do Servidor NestJS:</h2>
-                <p style={{ color: '#646cff', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                  {mensagem}
-                </p>
-              </div>
-              <p>React (Porta 5173) + NestJS (Porta 3000)</p>
-            </header>
-          } />
 
-          {/* NOVA ROTA DE LOGIN */}
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <header className="flex flex-col items-center justify-center py-20 text-center">
+                <h1 className="text-3xl font-bold text-slate-800 mb-6">
+                  Em execução
+                </h1>
+
+                <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                  <h2 className="text-lg font-semibold mb-3">
+                    Status do Servidor NestJS:
+                  </h2>
+
+                  <p className="text-blue-600 text-2xl font-bold">
+                    {mensagem}
+                  </p>
+                </div>
+
+                <p className="mt-6 text-slate-500">
+                  React (Porta 5173) + NestJS (Porta 3000)
+                </p>
+              </header>
+            }
+          />
+
+          {/* LOGIN */}
           <Route path="/login" element={<Login />} />
+
         </Routes>
       </div>
     </BrowserRouter>
