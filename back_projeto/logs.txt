@@ -1,0 +1,14 @@
+> back_projeto@0.0.1 start
+
+> nest start
+
+
+[Nest] 36  - 04/01/2026, 10:23:55 PM     LOG [NestFactory] Starting Nest application...
+
+[Nest] 36  - 04/01/2026, 10:23:55 PM     LOG [InstanceLoader] AppModule dependencies initialized +6ms
+
+[Nest] 36  - 04/01/2026, 10:23:55 PM     LOG [RoutesResolver] AppController {/}: +2ms
+
+[Nest] 36  - 04/01/2026, 10:23:55 PM     LOG [RouterExplorer] Mapped {/, GET} route +2ms
+
+[Nest] 36  - 04/01/2026, 10:23:55 PM     LOG [NestApplication] Nest application successfully started +2ms

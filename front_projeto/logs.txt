@@ -1,0 +1,38 @@
+> front_projeto@0.0.0 dev
+
+> vite --host
+
+
+11:41:29 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+
+
+  VITE v7.3.1  ready in 247 ms
+
+
+  ➜  Local:   http://localhost:5173/
+
+  ➜  Network: http://172.17.0.2:5173/
+
+npm error path /app
+
+npm error command failed
+
+npm error signal SIGTERM
+
+npm error command sh -c vite --host
+
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-03-25T23_41_28_764Z-debug-0.log
+
+
+> front_projeto@0.0.0 dev
+
+> vite --host
+
+
+
+  VITE v7.3.1  ready in 429 ms
+
+
+  ➜  Local:   http://localhost:5173/
+
+  ➜  Network: http://172.17.0.2:5173/
