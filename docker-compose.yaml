@@ -17,6 +17,7 @@ services:
 
 
   backend:
+    image: gustavovieira29/taskivo:latest
     extra_hosts:
       - "host.docker.internal:host-gateway"
     dns:
@@ -27,7 +28,7 @@ services:
     build:
       context: ./back_projeto
       dockerfile: Dockerfile
-    container_name: gb_one_backend
+    container_name: ./back_projeto
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres_local:5432/${POSTGRES_DB}
     ports:
@@ -35,15 +36,17 @@ services:
     depends_on:
       postgres_local:
         condition: service_healthy
+    command: sh -c "npm install && npm run start:dev"
     restart: unless-stopped
 
 
 
   frontend:
+    image: gustavovieira29/taskivo:latest
     build:
       context: ./front_projeto
       dockerfile: Dockerfile
-    container_name: gb_one_frontend
+    container_name: ./front_projeto
     ports:
       - "80:80"
     depends_on:
