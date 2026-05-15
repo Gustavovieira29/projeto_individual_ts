@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+  labels:
+    app: backend
 spec:
   replicas: 2
   selector:
@@ -17,8 +19,12 @@ spec:
           image: gustavovieira29/projeto_individual_ts-backend:1.0.0
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: backend-config
           env:
-            - name: NODE_ENV
-              value: production
-            - name: DATABASE_URL
-              value: "" # STRING DE CONEXÃO COM O BANCO DE DADOS AQUI
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DB_PASSWORD
