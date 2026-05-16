@@ -23,5 +23,5 @@ spec:
         - name: VITE_API_URL
           valueFrom:
             configMapKeyRef:
-              name: frontend-config
+              name: frontend-config   # corrigido: agora esse ConfigMap existe
               key: API_URL
