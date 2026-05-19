@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1779230523134" clover="3.2.0">
+  <project timestamp="1779230523134" name="All files">
+    <metrics statements="35" coveredstatements="35" conditionals="20" coveredconditionals="19" methods="11" coveredmethods="11" elements="66" coveredelements="65" complexity="0" loc="35" ncloc="35" packages="1" files="3" classes="3"/>
+    <file name="app.controller.ts" path="D:\Faculdade2026\Aula_Adrian\projeto_individual_ts\back_projeto\src\app.controller.ts">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+    </file>
+    <file name="app.service.ts" path="D:\Faculdade2026\Aula_Adrian\projeto_individual_ts\back_projeto\src\app.service.ts">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+    </file>
+    <file name="auth.service.ts" path="D:\Faculdade2026\Aula_Adrian\projeto_individual_ts\back_projeto\src\auth.service.ts">
+      <metrics statements="26" coveredstatements="26" conditionals="16" coveredconditionals="16" methods="8" coveredmethods="8"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="6" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="24" count="4" type="stmt"/>
+      <line num="26" count="4" type="cond" truecount="4" falsecount="0"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="30" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="40" count="4" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="51" count="6" type="stmt"/>
+      <line num="53" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="60" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="67" count="1" type="stmt"/>
+      <line num="73" count="1" type="stmt"/>
+      <line num="74" count="3" type="stmt"/>
+    </file>
+  </project>
+</coverage>
