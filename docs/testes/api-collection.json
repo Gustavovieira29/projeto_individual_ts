@@ -23,7 +23,7 @@
           },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 201 - Usuário criado\", () => {\n  pw.expect(pw.response.status).toBe(201);\n});\npw.test(\"Resposta contém dados do usuário\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"user\");\n});"
+          "testScript": "pw.test(\"Status 201 - Usuário criado\", () => {\n  pw.expect(pw.response.status).toBe(201);\n});\npw.test(\"Resposta contém dados do usuário\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"Usuário cadastrado com sucesso.\");\n});"
         },
         {
           "id": "req-2",
@@ -41,7 +41,7 @@
           },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 400 - Dados inválidos\", () => {\n  pw.expect(pw.response.status).toBe(400);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+          "testScript": "pw.test(\"Status 400 - Dados inválidos\", () => {\n  pw.expect(pw.response.status).toBe(400);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"E-mail inválido.\");\n});"
         }
       ]
     },
@@ -66,7 +66,7 @@
           },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 200 - Login bem-sucedido\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta contém token\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"token\");\n});"
+          "testScript": "pw.test(\"Status 200 - Login bem-sucedido\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta contém token\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"Login realizado com sucesso\");\n});"
         },
         {
           "id": "req-4",
@@ -84,7 +84,7 @@
           },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 401 - Não autorizado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+          "testScript": "pw.test(\"Status 401 - Não autorizado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"Senha inválida\");\n});"
         }
       ]
     },
@@ -106,7 +106,7 @@
           "body": { "contentType": "application/json", "body": "" },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 200 - Painel acessado\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta lista usuários\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"users\");\n});"
+          "testScript": "pw.test(\"Status 200 - Painel acessado\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta lista usuários\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"Painel do administrador\");\n});"
         },
         {
           "id": "req-6",
@@ -121,7 +121,7 @@
           "body": { "contentType": "application/json", "body": "" },
           "auth": { "authType": "none", "authActive": false },
           "preRequestScript": "",
-          "testScript": "pw.test(\"Status 401 - Acesso negado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+          "testScript": "pw.test(\"Status 401 - Acesso negado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body.message).toInclude(\"Acesso negado. Apenas administradores.\");\n});"
         }
       ]
     }
