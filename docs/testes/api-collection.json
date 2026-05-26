@@ -1,0 +1,130 @@
+{
+  "v": 5,
+  "name": "projeto_individual_ts",
+  "folders": [
+    {
+      "id": "folder-1",
+      "name": "Cadastro de Usuário",
+      "folders": [],
+      "requests": [
+        {
+          "id": "req-1",
+          "v": "1",
+          "name": "CT-01 ✅ Cadastro com dados válidos",
+          "method": "POST",
+          "endpoint": "http://localhost:3000/auth/register",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"name\": \"Gustavo Vieira\",\n  \"email\": \"gustavo@email.com\",\n  \"password\": \"senha123\"\n}"
+          },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 201 - Usuário criado\", () => {\n  pw.expect(pw.response.status).toBe(201);\n});\npw.test(\"Resposta contém dados do usuário\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"user\");\n});"
+        },
+        {
+          "id": "req-2",
+          "v": "1",
+          "name": "CT-02 ❌ Cadastro com email inválido e senha curta",
+          "method": "POST",
+          "endpoint": "http://localhost:3000/auth/register",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"name\": \"Gustavo Vieira\",\n  \"email\": \"emailinvalido\",\n  \"password\": \"123\"\n}"
+          },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 400 - Dados inválidos\", () => {\n  pw.expect(pw.response.status).toBe(400);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+        }
+      ]
+    },
+    {
+      "id": "folder-2",
+      "name": "Validação de Usuário (Login)",
+      "folders": [],
+      "requests": [
+        {
+          "id": "req-3",
+          "v": "1",
+          "name": "CT-03 ✅ Login com credenciais corretas",
+          "method": "POST",
+          "endpoint": "http://localhost:3000/auth/login",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"email\": \"admin@email.com\",\n  \"password\": \"admin123\"\n}"
+          },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 200 - Login bem-sucedido\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta contém token\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"token\");\n});"
+        },
+        {
+          "id": "req-4",
+          "v": "1",
+          "name": "CT-04 ❌ Login com senha incorreta",
+          "method": "POST",
+          "endpoint": "http://localhost:3000/auth/login",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"email\": \"admin@email.com\",\n  \"password\": \"senhaERRADA\"\n}"
+          },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 401 - Não autorizado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+        }
+      ]
+    },
+    {
+      "id": "folder-3",
+      "name": "Painel Administrador",
+      "folders": [],
+      "requests": [
+        {
+          "id": "req-5",
+          "v": "1",
+          "name": "CT-05 ✅ Acesso ao painel como admin",
+          "method": "GET",
+          "endpoint": "http://localhost:3000/auth/admin",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": { "contentType": "application/json", "body": "" },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 200 - Painel acessado\", () => {\n  pw.expect(pw.response.status).toBe(200);\n});\npw.test(\"Resposta lista usuários\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"users\");\n});"
+        },
+        {
+          "id": "req-6",
+          "v": "1",
+          "name": "CT-06 ❌ Acesso negado para usuário comum",
+          "method": "GET",
+          "endpoint": "http://localhost:3000/auth/admin/denied",
+          "headers": [
+            { "key": "Content-Type", "value": "application/json", "active": true }
+          ],
+          "params": [],
+          "body": { "contentType": "application/json", "body": "" },
+          "auth": { "authType": "none", "authActive": false },
+          "preRequestScript": "",
+          "testScript": "pw.test(\"Status 401 - Acesso negado\", () => {\n  pw.expect(pw.response.status).toBe(401);\n});\npw.test(\"Resposta contém mensagem de erro\", () => {\n  pw.expect(pw.response.body).toHaveProperty(\"message\");\n});"
+        }
+      ]
+    }
+  ],
+  "requests": []
+}
